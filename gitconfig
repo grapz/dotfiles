@@ -1,9 +1,12 @@
 [user]
-    name = Gary Bernhardt
-    email = gary.bernhardt@gmail.com
+    name = Anders Østhus
+    email = grapz666@gmail.com
 [diff]
 [color]
     ui = auto
+    diff = auto
+    status = auto
+    branch = auto
 [alias]
     st = status
     ci = commit
@@ -46,3 +49,6 @@
 [merge]
     tool = vimdiff
 
+[github]
+    user = grapz
+    token = 
