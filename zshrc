@@ -13,8 +13,8 @@ export PATH=/usr/local/sbin:/usr/local/bin:${PATH}
 export PATH="$HOME/bin:$PATH"
 
 # Colorize terminal
-export TERM='xterm-color'
-alias ls='ls -G'
+export TERM='xterm-256color'
+alias ls='ls --color -G'
 alias ll='ls -lG'
 export LSCOLORS="ExGxBxDxCxEgEdxbxgxcxd"
 export GREP_OPTIONS="--color"
