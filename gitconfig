@@ -52,3 +52,5 @@
 [github]
     user = grapz
     token = 
+[push]
+	default = simple
