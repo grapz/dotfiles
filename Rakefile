@@ -5,8 +5,9 @@ desc 'install the dotfiles into home folder'
 task :install do
   update_submodules
   replace_all = false
+  link_folder('bin')
   Dir['*'].each do |file|
-    next if %w[Rakefile .git].include? file
+    next if %w[Rakefile .git bin].include? file
     
     if File.exist?(File.join(ENV['HOME'], ".#{file.sub('.erb', '')}"))
       if File.identical? file, File.join(ENV['HOME'], ".#{file.sub('.erb', '')}")
@@ -30,6 +31,25 @@ task :install do
     else
       link_file(file)
     end
+  end
+end
+
+def link_folder(folder)
+  if File.exist?(File.join(ENV['HOME'], folder))
+    print "Overwrite ~/#{folder}? [ynq] "
+    case $stdin.gets.chomp
+    when 'y'
+      system %Q{rm -rf "$HOME/#{folder}"}
+      puts "Linking ~/#{folder}"
+      system %Q{ln -s "$PWD/#{folder}" "$HOME/#{folder}"}
+    when 'q'
+      exit
+    else
+      puts "Skipping ~/#{folder}"
+    end
+  else
+    puts "Linking ~/#{folder}"
+    system %Q{ln -s "$PWD/#{folder}" "$HOME/#{folder}"}
   end
 end
 
