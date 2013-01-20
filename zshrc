@@ -103,3 +103,5 @@ function up()
 PATH=$PATH:$HOME/.rvm/bin
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
+# Local rc file
+[[ -f ~/.localrc ]] && . ~/.localrc
