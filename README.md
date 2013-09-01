@@ -11,9 +11,13 @@ sudo make install
 You also need CTAGS:
 sudo apt-get install exuberant-ctags
 
-git clone git://github.com/grapz/dotfiles ~/.dotfiles
-cd ~/.dotfiles
+git clone git://github.com/grapz/dotfiles ~/dotfiles
+cd ~/dotfiles
 rake install
+
+In ~/dotfiles/vim/bundles/Command-T/ruby do:
+ruby extconf.rb
+make
 
 Gems required:
   irbtools
