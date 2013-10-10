@@ -282,6 +282,10 @@ function! OpenTestAlternate()
   let new_file = AlternateForCurrentFile()
   exec ':e ' . new_file
 endfunction
+function! OpenTestAlternateInSplit()
+  let new_file = AlternateForCurrentFile()
+  exec ':vsplit ' . new_file
+endfunction
 function! AlternateForCurrentFile()
   let current_file = expand("%")
   let new_file = current_file
@@ -304,6 +308,7 @@ function! AlternateForCurrentFile()
   return new_file
 endfunction
 nnoremap <leader>. :call OpenTestAlternate()<cr>
+nnoremap <leader>- :call OpenTestAlternateInSplit()<cr>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " RUNNING TESTS
